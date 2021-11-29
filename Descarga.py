@@ -19,7 +19,6 @@ import pandas as pd
 #importamos la rutina de welch
 from scipy.signal import welch as pwelch
 from scipy.signal import butter, lfilter
-import pywt
 
 
 # Import MNE, as well as the MNE sample dataset
@@ -41,6 +40,9 @@ from scipy.stats import mode
 import traceback
 
 def dowload_links(links):
+  print(links)
+  links = [links]
+  print(links)
   path_act = os.getcwd()
   prep_path = path_act + './Datos_Originales_Preprocesados/'
   os.makedirs(prep_path,exist_ok=True)
@@ -264,4 +266,3 @@ def play_dowload(links):
       #break
 
   print('Errores',errores)
-

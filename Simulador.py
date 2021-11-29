@@ -177,8 +177,8 @@ def balance(X,Y):
   assert np.sum(Y[idx_to_keep]==0)==Y_1 # Adultos mayores antes == Adultos despues
   X_ = X[idx_to_keep,:]
   Y_ = Y[idx_to_keep]
-  X_train, X_test, Y_train, Y_test = train_test_split(
-    X_, Y_, test_size=0.3, stratify=Y_,random_state=n_seed)
+  X_train, X_test, Y_train, Y_test = train_test_split(X_, Y_, test_size=0.3, stratify=Y_,random_state=n_seed)
+
   return X_train, X_test, Y_train, Y_test
 
 def inModel(Y_train,Y_test):
@@ -334,20 +334,19 @@ def ejecutar():
   archivos = glob.glob(path_archivos)
 
   X,Y = traindata(archivos)
+  '''
   X_train, X_test, Y_train, Y_test = balance(X,Y)
   inModel(Y_train,Y_test)
   train_X,test_X,train_label,test_label = rename(X_train, X_test, Y_train, Y_test)
-  '''
   if model == None:
     model=crear_modelo(train_X)
   else:
     '''
-  model =loadModel('./modelo')
-    
+  model =loadModel('./modelo') 
   model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-  model.fit(train_X, train_label,validation_split=0.1,epochs=50, batch_size=32,verbose=1)
+  model.fit(X, Y,validation_split=0.1,epochs=5, batch_size=32,verbose=1)
   toJSON(model)
-  grafica(model,test_X,test_label)
+  grafica(model,X, Y)
     
 def returnImageBase64():
   with open('Confusion_matrix.png', "rb") as image_file:
@@ -355,4 +354,3 @@ def returnImageBase64():
     
   base64String=str(data)
   return base64String[2:len(base64String)-1]
-

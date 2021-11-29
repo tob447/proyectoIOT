@@ -1,4 +1,3 @@
-from logging import debug
 from flask import Flask, request
 from flask_restful import Api,Resource,request
 from flask_cors import CORS
@@ -17,15 +16,8 @@ class GetPrecisionGraphs(Resource):
         play_dowload(request.json["link"])
         ejecutar()
     
-        return returnImageBase64()
-    
-
+        return returnImageBase64() 
         
-
-
-
-
-
 api.add_resource(GetPrecisionGraphs,"/callMethod")
 
 if __name__ == "__main__":
