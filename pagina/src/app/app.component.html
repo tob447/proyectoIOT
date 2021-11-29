@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+  <div class="col" id="main">
+    <div class="row">
+      <div class="col" id="title">
+        <h3>Modelo de Claficacion de Edades Personas</h3>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col"  id="graph">
+        <img id="graph" src="data:image/png;base64,{{graphBase64}}">
+      </div>
+      
+    </div>
+
+    <div class="row">
+      <div class="col" id=form>
+        <form>
+          <label for="exampleInputEmail1">Ruta de Descarga</label>
+          <input [(ngModel)]="ruta" name="ruta" type="text" class="form-control">
+          <br>
+          <button (click)="graph()" type="button" class="btn btn-primary">Evaluar Modelo</button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>

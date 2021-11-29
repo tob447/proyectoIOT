@@ -1,0 +1,24 @@
+#main{
+    background-color: bisque;
+    height: 75vh;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    margin-top: 15vh;
+}
+
+#title{
+    text-align: center;
+    padding-top: 3vh;
+}
+
+#graph{
+    height: 45vh;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    margin-top: 1.5vh;
+}
+
+#form{
+    padding-top: 3vh;
+    text-align: center;
+}
